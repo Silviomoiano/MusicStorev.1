@@ -1,0 +1,191 @@
+<html>
+
+
+<title>Music Store</title>
+
+<center>
+<head><h1>Music Store</h1>
+</center>
+
+<script async src="loja.js"></script>
+
+
+<body>
+</html>
+
+    
+
+
+
+
+<center>
+<p><strong>Produtos</strong></p>
+
+</center>
+
+<center>
+
+<img src= "https://static.wixstatic.com/media/c6bee4_3782e09a2ede484da38fbd6271a96362~mv2.jpg/v1/fill/w_994,h_732,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/c6bee4_3782e09a2ede484da38fbd6271a96362~mv2.jpg" width= "300"
+height="300">
+<h2><u> Les paul bullseye  </u></h2>
+<center><a href="pagina1.html"></a>
+	<h1>A Guitarra Les Paul Strinberg é um modelo clássico destinado aos músicos que desejam um bom instrumento por um bom preço. Tem tudo que uma Les Paul deve ter, captadores humbucker duplos, chave seletora de 3 posições, escudo flutuante, 2 tons, 2 volumes, além das clássicas cores nas quais são feitas desde sua criação.</h1>
+
+
+<div align="center">
+	 <strong>R$ 800,00</strong><br>
+	qtd: <input type="number" value="1" min="1" max="10" id="qtd1">
+	<button type="button" id="adicionar1" id="produto1" onclick="AddCarrinho('Les paul bullseye', document.getElementById('qtd1').value, '800.00', 1)"> Comprar </button>
+</div>
+<hr></center>
+
+
+
+
+
+<center>
+<img src="https://d2r9epyceweg5n.cloudfront.net/stores/001/582/790/products/whatsapp-image-2023-05-10-at-21-28-081-c3e75907c7752473b116838251682852-640-0.jpeg" width= "300"
+height="300">
+<h2><u> Stratocaster </u></h2>
+<center><a href="pagina2.html"></a>
+	<h1>Moderna e super versátil, a guitarra MG-30 da Tagima Série Memphis pode ser utilizada em diversos estilos musicais, para estudo, gravações e apresentações. Conta com qualidade sonora, belíssimo acabamento além de ótimo custo benefício. As guitarras produzidas pela Tagima são reconhecidas pelos maiores guitarristas profissionais da atualidade como a melhor marca de guitarras do Brasil.
+
+<div align="center">
+	<br> <strong>R$ 500,00</strong><br>
+	qtd: <input type="number" value="1" min="1" max="10" id="qtd2">
+	<button type="button" id="adicionar1" id="produto1" onclick="AddCarrinho('Stratocaster', document.getElementById('qtd2').value, '500.00', 2)"> Comprar </button>
+</div>
+<hr></center>
+
+
+
+
+
+<center>
+<img src= "https://http2.mlstatic.com/D_NQ_NP_853781-MLB70619905232_072023-O.webp" width= "300"
+height="300">
+<h2><u> Fender bass</u></h2>
+<p> </p></center>
+<center><a href="pagina3.html" target="_blank"></a>
+	<h1>O Contrabaixo Tagima TJB-4 possui estilo Jazz Bass com 4 Cordas. Modelo passivo com 2 captadores Single Coils de Alnico, um dos modelos mais clássicos de contrabaixo em uma versão com timbre e acabamentos surpreendentes resultando em um ótimo custo-benefício</h1>
+
+
+
+<div align="center">
+	<br> <strong>R$ 600,00</strong><br>
+	qtd: <input type="number" value="1" min="1" max="10" id="qtd3">
+	<button type="button" id="adicionar1" id="produto1" onclick="AddCarrinho('Fender bass', document.getElementById('qtd3').value, '600.00', 3)"> Comprar </button>
+</div>
+<hr></center>
+
+
+
+
+<meta charset="UTF-8">
+
+<div align="center">
+	Les paul bullseye <strong>R$ 800,00</strong><br>
+	qtd: <input type="number" value="1" min="1" max="10" id="qtd1">
+	<button type="button" id="adicionar1" id="produto1" onclick="AddCarrinho('Les paul bullseye', document.getElementById('qtd1').value, '800.00', 1)"> Comprar </button>
+</div>
+
+<div align="center">
+	<br>Stratocaster <strong>R$ 500,00</strong><br>
+	qtd: <input type="number" value="1" min="1" max="10" id="qtd2">
+	<button type="button" id="adicionar1" id="produto1" onclick="AddCarrinho('Stratocaster', document.getElementById('qtd2').value, '500.00', 2)"> Comprar </button>
+</div>
+
+<div align="center">
+	<br>Fender bass <strong>R$ 600,00</strong><br>
+	qtd: <input type="number" value="1" min="1" max="10" id="qtd3">
+	<button type="button" id="adicionar1" id="produto1" onclick="AddCarrinho('Fender bass', document.getElementById('qtd3').value, '600.00', 3)"> Comprar </button>
+</div>
+
+<p align="center">
+	<a href="carrinho.html"> Ver Carrinho de compras </a>
+</p>	
+		
+<script>
+	function AddCarrinho(produto, qtd, valor, posicao)
+	{
+		localStorage.setItem("produto" + posicao, produto);
+		localStorage.setItem("qtd" + posicao, qtd);
+		valor = valor * qtd;
+		localStorage.setItem("valor" + posicao, valor);
+		alert("Produto adicionado ao carrinho!");
+	}
+</script>
+
+<meta charset="UTF-8">
+
+<div id="itens"> </div>
+<div>Total: <span id="total"></span> </div>
+
+<script>
+ var total = 0; // variável que retorna o total dos produtos que estão na LocalStorage.
+ var i = 0;     // variável que irá percorrer as posições
+ var valor = 0; // variável que irá receber o preço do produto convertido em Float.
+ 
+ for(i=1; i<=99; i++) // verifica até 99 produtos registrados na localStorage
+ {
+	 var prod = localStorage.getItem("produto" + i + ""); // verifica se há recheio nesta posição. 
+	 if(prod != null) 
+	 {	
+		 // exibe os dados da lista dentro da div itens
+		 document.getElementById("itens").innerHTML += localStorage.getItem("qtd" + i) + " x ";
+		 document.getElementById("itens").innerHTML += localStorage.getItem("produto" + i);
+		 document.getElementById("itens").innerHTML += " ";
+		 document.getElementById("itens").innerHTML += "R$: " + localStorage.getItem("valor" + i) + "<hr>";
+		 
+		 // calcula o total dos recheios
+		 valor = parseFloat(localStorage.getItem("valor" + i)); // valor convertido com o parseFloat()
+		 total = (total + valor); // arredonda para 2 casas decimais com o .toFixed(2)
+	 }
+ } 
+ // exibe o total dos recheios
+ document.getElementById("total").innerHTML = total.toFixed(2); 
+</script>
+
+<button type="button" onclick=" localStorage.clear(); location.reload();"> Limpar carrinho </button>
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<center>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/fJ9rUzIMcZQ?si=IcDbdS_TVtWsZkNN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</center>
+
+
+
+
+
+
+
+
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>
+<footer>
+<p> End: Avenida Musical 768</p>
